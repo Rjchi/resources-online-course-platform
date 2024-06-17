@@ -48,7 +48,7 @@ sudo ln -s /etc/nginx/sites-available/travellist /etc/nginx/sites-enabled/
 
 https://www.cyberciti.biz/faq/linux-unix-bsd-nginx-413-request-entity-too-large/
 
-
+--------------------------------------------------------------------------------------------------------
 Ultima sección del curso:
 
 COMPILACIÓN en Angular antes de desplegar
@@ -56,20 +56,39 @@ COMPILACIÓN en Angular antes de desplegar
 Es importante compilar antes de desplegar, en caso de no hacerlo significa que estaremos utilizando
 el codigo fuente en vez del codigo del proyecto que se genera al momento de compilar
 y esto desembocara en tiempos de carga mas lentos, pasar por alto errores y menos seguridad.
+En este caso al compilar el unico directorio que necesitamos y que va a leer el SERVIDOR va a ser
+'dist' (especificamente el archivo index) no el src (ya que este es el codigo fuente).
+--------------------------------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------------------------------
+Una de las maneras mas comunes de desplegar un proyecto es subir a GITHUB solo el directorio
+dist (generado al compilar), en vez de todo el proyecto con el codigo fuente (pero tambien es valido
+subirlo completo y apuntar a la carpeta dist o subirlos en dos REPOSITORIOS SEPARADOS).
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 0. Configuracion de las variables de entorno
 
 1.
 ng build --configuration=production (este es para la plataforma de cursos)
 ng build --prod (este es para el admin de metronic)
 
-2. backups de la base de datos
+2. Generar backups de la base de datos
 
 3. /CLASE 148/
 Creacion del DROPLET (en ubuntu) en digitalocean (y configuracion a traves de PuTTY, PuTTY nos va a ayudar
-a acceder de manera remota al DROPLET)
+a acceder de manera remota al DROPLET) a este DROPLET le vamos a configurar todo (Base de datos, archivos
+estaticos, protocolos, etc) ya que es el SERVIDOR (NGINX)
 
 4. Subir a GITHUB los archivos de uploads se van a gestionar con FileZilla, por ende se debe indicar a gitignore
 que uploads va a ser una de las carpetas que no se van a Subir
 
-5. 
+5. Clonar proyectos y restaurar la base de datos en el DROPLET (con PM2 ejecutamos el proyecto
+en segundo plano), aqui vamos a utilizar FileZilla para entrar al DROPLET y agregar el backup de la base
+de datos (ejecutamos el comando para restaurar la base de datos dentro del DROPLET) despues dentro del
+DROPLET (en var/www) debemos clonar los proyectos de GITHUB y en la API debemos poner la carpeta uploads
+que habiamos ignorado anteriormente.
+
+6. Configuracion de las variables de entorno en la API
+
+7. Instalar dependencias de los proyectos
+--------------------------------------------------------------------------------------------------------
