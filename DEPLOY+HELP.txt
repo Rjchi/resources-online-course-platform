@@ -69,4 +69,7 @@ ng build --prod (este es para el admin de metronic)
 Creacion del DROPLET (en ubuntu) en digitalocean (y configuracion a traves de PuTTY, PuTTY nos va a ayudar
 a acceder de manera remota al DROPLET)
 
-4. Subir a GITHUB
+4. Subir a GITHUB los archivos de uploads se van a gestionar con FileZilla, por ende se debe indicar a gitignore
+que uploads va a ser una de las carpetas que no se van a Subir
+
+5. 
