@@ -90,5 +90,7 @@ que habiamos ignorado anteriormente.
 
 6. Configuracion de las variables de entorno en la API
 
-7. Instalar dependencias de los proyectos
+7. Instalar dependencias de la API
+
+8. Configuración de NGINX
 --------------------------------------------------------------------------------------------------------
